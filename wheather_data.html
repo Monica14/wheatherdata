@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Wheather Details</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="../wheatherdata/public/javascripts/angular_custom.js"></script>
+</head>
+
+<body ng-app="wheather_details" ng-controller="wheather_data">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="media">
+                    <i class="fa fa-cloud" style="color: blue;font-size: 100px;"></i>
+                    <div style="padding-top: 82px;float:right">
+                        Enter city name : <input type="text" ng-model="cityname">
+                        <input type="button" value="Check" ng-click="checkdata()" class="btn btn-info">
+                    </div>
+                    <div class="alert alert-danger" style="margin-top: 33px;" ng-if="city_error"  ng-init="city_error = false">
+                        <strong>Error!</strong> Please enter valid city name
+                      </div>
+                    <div class="media-body">
+                        <h5 class="mt-0">
+                            Todays Wheather Details
+                        </h5>
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Wheather Type
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="list in whtr_details">
+                                        <td>{{list.main}}</td>
+                                        <td>{{list.description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Temparature (C)
+                                        </th>
+                                        <th>
+                                            Humidity
+                                        </th>
+                                        <th>
+                                            Pressure
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{temp_details.temp}}</td>
+                                        <td>{{temp_details.humidity}}</td>
+                                        <td>{{temp_details.pressure}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="media-body">
+                        <h5 class="mt-0" style="padding-left: 18px;">
+                            Other 5 days Wheather Details
+                        </h5>
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Wheather Type
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                                Temparature  (C)
+                                            </th>
+                                            <th>
+                                                Humidity
+                                            </th>
+                                            <th>
+                                                Pressure
+                                            </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="list in whtr_details1">
+                                        <td>{{list.dt_txt}}</td>
+                                        <td>{{list.weather[0].main}}</td>
+                                        <td>{{list.weather[0].description}}</td>
+                                        <td>{{list.main.temp}}</td>
+                                        <td>{{list.main.humidity}}</td>
+                                        <td>{{list.main.pressure}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
