@@ -1,28 +1,9 @@
 var express = require('express');
 var user = require('../models/user');
 var expressvalidator = require('express-validator');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 var router = express.Router();
 router.use(expressvalidator());
 
-/////////////////// Passport Strategy ///////////////////
-passport.use('local.usercheck', new LocalStrategy({
-  usernameField: 'username',
-  passwordField: 'password',
-  passReqToCallback: true
-}, function (req, username, password, done) {
-  userdata.findOne({ 'username': username }, function (err, user1) {
-    if (err) {
-      return done(err);
-    }
-    if (!user1) {
-      return done(null, false);
-    }
-    return done(null, user1);
-
-  })
-}))
 
 /* GET users listing. */
 router.post('/signup', function (req, res, next) {
