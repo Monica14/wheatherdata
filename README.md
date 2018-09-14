@@ -9,3 +9,4 @@
  1. first clone this git link i.e https://github.com/Monica14/wheatherdata.git
  2. Run npm install (all packages are static installed so no global package required)
  3. Run npm start
+ 4. The images of sucess and error in images folder is just for reference i.e how i have run this project in frontend 
